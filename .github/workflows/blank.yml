@@ -1,0 +1,24 @@
+name: Deploy to IPFS with Pinata
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Deploy to IPFS with Pinata
+      uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
+      with:
+        pin-name: 'Site TP2'
+        path: './'
+        pinata-api-key: 23ee8e208dd7b21737b7
+        pinata-secret-api-key: 9419d6ab28d94e9fef6a5a7fd230a46f7ee4f9456e80495f3cc0ecf3fccb58a1
+        verbose: true
+        remove-old: false
